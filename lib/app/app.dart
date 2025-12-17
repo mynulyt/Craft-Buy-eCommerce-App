@@ -1,9 +1,10 @@
-import 'package:craft_buy/app/app_routes.dart';
+import 'package:craft_buy/app/app_route.dart';
 import 'package:craft_buy/app/app_theme.dart';
 import 'package:craft_buy/app/providers/language_provider.dart';
 import 'package:craft_buy/app/providers/theme_provider.dart';
 import 'package:craft_buy/feature/auth/presentation/screen/splash_screen.dart';
 import 'package:craft_buy/feature/common/prsentation/providers/main_nav_bar_provider.dart';
+import 'package:craft_buy/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -38,13 +39,18 @@ class _CraftyBayAppState extends State<CraftyBayApp> {
                 theme: AppTheme.lightTheme,
                 darkTheme: AppTheme.darkTheme,
                 themeMode: themeProvider.currentThemeMode,
+
                 localizationsDelegates: [
                   AppLocalizations.delegate,
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                 ],
-                supportedLocales: [Locale('en'), Locale('bn'), Locale('de')],
+                supportedLocales: const [
+                  Locale('en'),
+                  Locale('bn'),
+                  Locale('de'),
+                ],
                 locale: languageProvider.currentLocale,
               );
             },
